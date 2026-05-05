@@ -16,7 +16,7 @@ const SECTIONS: Section[] = [
   { id: "contact", label: "Contact" },
 ]
 
-const TICKS_PER_SECTION = 5
+const TICKS_PER_SECTION = 4
 
 export function ScrollBarIndicator() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -73,15 +73,15 @@ export function ScrollBarIndicator() {
       role="navigation"
       aria-label="Section progress"
       className={cn(
-        "pointer-events-none fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 sm:flex md:right-6",
+        "pointer-events-none fixed right-3 top-1/2 z-40 hidden -translate-y-1/2 sm:flex md:right-4",
         "transition-all duration-500 ease-out",
-        visible ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0",
+        visible ? "translate-x-0 opacity-100" : "translate-x-3 opacity-0",
       )}
     >
       <div
         className={cn(
-          "pointer-events-auto flex flex-col items-stretch gap-1 rounded-full px-1.5 py-3",
-          "bg-foreground/95 shadow-[0_8px_30px_rgb(0,0,0,0.18)] ring-1 ring-foreground/20 backdrop-blur",
+          "pointer-events-auto flex flex-col items-stretch gap-0.5 rounded-full px-1 py-1.5",
+          "bg-primary/95 shadow-[0_4px_16px_rgb(28,28,28,0.15)] ring-1 ring-primary/30 backdrop-blur",
         )}
       >
         {SECTIONS.map((section, i) => {
@@ -94,32 +94,32 @@ export function ScrollBarIndicator() {
               aria-label={`Go to ${section.label} section`}
               aria-current={isActive ? "true" : undefined}
               className={cn(
-                "group flex flex-col items-center gap-1.5 rounded-full px-2 py-2",
-                "outline-none focus-visible:ring-1 focus-visible:ring-background/60",
+                "group flex flex-col items-center gap-1 rounded-full px-1.5 py-1",
+                "outline-none focus-visible:ring-1 focus-visible:ring-primary-foreground/60",
                 "transition-colors duration-200",
               )}
             >
               <span
                 className={cn(
-                  "font-mono text-[11px] leading-none tracking-wider tabular-nums",
+                  "font-mono text-[9px] leading-none tracking-wider tabular-nums",
                   "transition-all duration-300",
                   isActive
-                    ? "text-background"
-                    : "text-background/35 group-hover:text-background/70",
+                    ? "text-primary-foreground"
+                    : "text-primary-foreground/30 group-hover:text-primary-foreground/60",
                 )}
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
 
-              <span className="flex flex-col items-center gap-[3px]" aria-hidden="true">
+              <span className="flex flex-col items-center gap-[2px]" aria-hidden="true">
                 {Array.from({ length: TICKS_PER_SECTION }).map((_, t) => (
                   <span
                     key={t}
                     className={cn(
-                      "block h-px w-3 origin-center transition-all duration-300",
+                      "block h-px w-2 origin-center transition-all duration-300",
                       isActive
-                        ? "bg-background/75"
-                        : "bg-background/20 group-hover:bg-background/40",
+                        ? "bg-accent"
+                        : "bg-primary-foreground/20 group-hover:bg-primary-foreground/40",
                     )}
                   />
                 ))}
