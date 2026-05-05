@@ -6,11 +6,13 @@ import { Projects } from "@/components/sections/projects"
 import { Skills } from "@/components/sections/skills"
 import { Contact } from "@/components/sections/contact"
 import { SiteFooter } from "@/components/sections/footer"
+import { ScrollBarIndicator } from "@/components/scrollbar-indicator"
 
 export default function Page() {
   return (
     <LanguageProvider>
       <SiteNav />
+      <ScrollBarIndicator />
       <main>
         <Hero />
         <About />
