@@ -76,7 +76,6 @@ export function Hero() {
       <div className="relative z-10 mx-auto mt-6 flex w-full max-w-7xl items-end justify-between border-t border-border pt-4 text-[10px] tracking-[0.2em] text-muted-foreground uppercase md:mt-16 md:pt-6 md:text-xs">
         <span>{ui.hero.location[lang]}</span>
         <span className="hidden md:inline">UNR · MATCH arqs</span>
-        <span className="font-mono normal-case tracking-normal">— 01</span>
       </div>
     </section>
   )

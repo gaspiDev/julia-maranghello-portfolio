@@ -172,7 +172,7 @@ export function Projects() {
       <div className="mx-auto max-w-7xl">
         <FadeIn>
           <div className="mb-10 flex items-center gap-3 text-xs tracking-[0.2em] text-muted-foreground uppercase">
-            <span className="font-mono normal-case tracking-normal">03</span>
+            <span className="font-mono normal-case tracking-normal">02</span>
             <span className="h-px w-10 bg-muted-foreground/60" />
             <span>{ui.projects.title[lang]}</span>
           </div>

@@ -80,8 +80,8 @@ export function ScrollBarIndicator() {
     >
       <div
         className={cn(
-          "pointer-events-auto flex flex-col items-stretch gap-0.5 rounded-full px-1 py-1.5",
-          "bg-primary/95 shadow-[0_4px_16px_rgb(28,28,28,0.15)] ring-1 ring-primary/30 backdrop-blur",
+          "pointer-events-auto flex flex-col items-stretch gap-0.5 rounded-full px-0 py-1.5",
+          "bg-primary/75 shadow-[0_4px_16px_rgb(28,28,28,0.15)] ring-1 ring-primary/30 backdrop-blur",
         )}
       >
         {SECTIONS.map((section, i) => {
