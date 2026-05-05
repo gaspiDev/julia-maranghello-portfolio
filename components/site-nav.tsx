@@ -69,23 +69,48 @@ export function SiteNav() {
             onClick={() => setOpen((s) => !s)}
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground"
+            className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-border text-foreground transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground"
           >
-            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            <Menu
+              aria-hidden="true"
+              className={cn(
+                "absolute h-4 w-4 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]",
+                open ? "rotate-90 scale-75 opacity-0" : "rotate-0 scale-100 opacity-100",
+              )}
+            />
+            <X
+              aria-hidden="true"
+              className={cn(
+                "absolute h-4 w-4 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]",
+                open ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-75 opacity-0",
+              )}
+            />
           </button>
         </div>
       </nav>
 
       {/* Mobile menu */}
-      {open && (
-        <div className="border-t border-border bg-background md:hidden">
+      <div
+        className={cn(
+          "grid overflow-hidden border-border bg-background md:hidden",
+          "transition-[grid-template-rows,opacity,border-color] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]",
+          open ? "grid-rows-[1fr] border-t opacity-100" : "grid-rows-[0fr] border-t-transparent opacity-0",
+        )}
+        aria-hidden={!open}
+      >
+        <div className="min-h-0">
           <ul className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4 text-base">
-            {links.map((l) => (
+            {links.map((l, i) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block py-3 text-foreground/80 transition-colors hover:text-foreground"
+                  tabIndex={open ? 0 : -1}
+                  style={{ transitionDelay: open ? `${80 + i * 60}ms` : "0ms" }}
+                  className={cn(
+                    "block py-3 text-foreground/80 transition-all duration-300 ease-out hover:text-foreground",
+                    open ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0",
+                  )}
                 >
                   {l.label}
                 </a>
@@ -93,7 +118,7 @@ export function SiteNav() {
             ))}
           </ul>
         </div>
-      )}
+      </div>
     </header>
   )
 }
