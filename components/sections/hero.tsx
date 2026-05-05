@@ -58,7 +58,7 @@ export function Hero() {
             {ui.hero.headline[lang]}
           </p>
           <div className="md:col-span-5 md:pt-2">
-            <p className="text-base leading-relaxed text-pretty text-muted-foreground md:text-[15px]">
+            <p className="text-base leading-relaxed text-pretty text-foreground/80 md:text-[15px]">
               {ui.hero.subtext[lang]}
             </p>
 
