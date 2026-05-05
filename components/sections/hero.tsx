@@ -11,7 +11,19 @@ export function Hero() {
     <section
       id="top"
       className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden px-6 pt-32 pb-12 md:px-10 md:pt-40 md:pb-16"
+style={{
+          backgroundImage: "url('/portada-render.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
+          backgroundRepeat: "no-repeat",
+        }}
     >
+      {/* Background overlay for readability */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-black/50"
+      />
+
       {/* Decorative grid */}
       <div
         aria-hidden="true"
