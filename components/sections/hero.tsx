@@ -11,26 +11,31 @@ export function Hero() {
     <section
       id="top"
       className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden px-6 pt-32 pb-12 md:px-10 md:pt-40 md:pb-16"
-style={{
-          backgroundImage: "url('/portada-render.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center top",
-          backgroundRepeat: "no-repeat",
-        }}
+      style={{
+        backgroundImage: "url('/portada-render.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
+        backgroundRepeat: "no-repeat",
+        backgroundColor: "var(--background)",
+      }}
     >
-      {/* Background overlay for readability */}
+      {/* Warm cream gradient overlay — heavier where text sits, lighter where the building shows through */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-black/50"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(245,243,239,0.94) 0%, rgba(245,243,239,0.78) 22%, rgba(245,243,239,0.45) 50%, rgba(245,243,239,0.82) 82%, rgba(245,243,239,0.96) 100%)",
+        }}
       />
 
       {/* Decorative grid */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.18]"
+        className="pointer-events-none absolute inset-0 opacity-[0.12]"
         style={{
           backgroundImage:
-            "linear-gradient(to right, var(--border) 1px, transparent 1px), linear-gradient(to bottom, var(--border) 1px, transparent 1px)",
+            "linear-gradient(to right, var(--foreground) 1px, transparent 1px), linear-gradient(to bottom, var(--foreground) 1px, transparent 1px)",
           backgroundSize: "80px 80px",
           maskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)",
         }}
